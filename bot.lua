@@ -1,7 +1,14 @@
+-- Bot configuration is inside api.lua file
+-- ---
+-- api.lua
+-- > return {
+-- >  api_key = 'YOUR_API:ABCDEFGHIJ123456789abcdefg'
+-- > }
+
 local bot = require'api'
 
-if not bot.api_key then
-  error('TBOT_API venv not defined')
+if not bot then
+  error('api.lua not found. This file contains a table with the api key in api_key index')
 end
 
 local api = require'telegram-bot-lua.core'.configure(bot.api_key)
